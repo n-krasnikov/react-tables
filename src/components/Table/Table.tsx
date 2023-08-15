@@ -21,15 +21,21 @@ const Table: FC<IProps> = ( { id } ) => {
     }
   }
 
+  const handleCloseTable = () => {
+    removeTable(id);
+  }
+
   const guests = getGuests(id);
   return (
     <>
       <div className='table'>
-        <span>Table {id}</span>
-        <span onClick={()=>{removeTable(id)}}>X</span>
-        <input type='text' value={name} onChange={handleNameChange}/>
-        <button onClick={handleSetName}>Submit</button>
+        <h3 className='table-title'>Table {id}</h3>
+        <span className='table-close' onClick={handleCloseTable}>X</span>
         <GuestList guests={guests} />
+        <div className='table-form'>
+          <input type='text' value={name} onChange={handleNameChange}/>
+          <button className='form-btn' onClick={handleSetName}>Add Guest</button>
+        </div>
       </div>
     </>
   )

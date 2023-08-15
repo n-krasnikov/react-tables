@@ -1,0 +1,17 @@
+.guest {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  color: whitesmoke
+}
+
+.guest:hover {
+  border: 1px solid #8E8EFE;
+}
+
+.guest:hover > .guest-remove {
+  color: crimson;
+}

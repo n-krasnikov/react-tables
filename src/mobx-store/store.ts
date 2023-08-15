@@ -1,15 +1,16 @@
 import { observable, action } from 'mobx';
 
-import { IState } from "../vite-env"
-
+import { IState } from '../vite-env';
 
 const state = observable<IState>({
   tables: []
 })
 
 export const addTable = action(() => {
-  console.log('addTable')
-  state.tables.push({id: state.tables.length + 1, guests: []})
+  state.tables.push({
+    id: state.tables.length + 1, 
+    guests: []
+  });
 })
 
 export const removeTable = action((tableId: number) => {
@@ -23,7 +24,11 @@ export const removeTable = action((tableId: number) => {
 export const addGuest = action((tableId: number, guestName: string) => {
   const table = state.tables.find((t) => t.id === tableId);
   if (table) {
-    table.guests.push({name: guestName, id: table.guests.length + 1, tableId: tableId});
+    table.guests.push({
+      name: guestName, 
+      id: table.guests.length + 1, 
+      tableId: tableId
+    });
   }
 })
 
