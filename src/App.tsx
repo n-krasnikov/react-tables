@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { getTables, addTable } from './mobx-store'
+import { getTables, addTable } from './mobx-store';
 
-import { TableList } from './components/TableList'
+import { TableList } from './components/TableList';
 
-import './App.css'
+import './App.css';
 
 
 const tables = getTables();
@@ -17,7 +17,7 @@ const App: FC = () => {
       <TableList tables={tables} />
     </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

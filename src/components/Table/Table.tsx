@@ -1,31 +1,32 @@
-import { useState, type FC } from 'react'
+import { useState, type FC } from 'react';
 
 import { removeTable, getGuests, addGuest } from '../../mobx-store';
 import { IProps } from './Table.props';
 
 import { GuestList } from '../GuestList';
 
-import './Table.css'
+import './Table.css';
 
 const Table: FC<IProps> = ( { id } ) => {
   const [name, setName] = useState('');
 
-  const handleNameChange = ( event ) => {
-    setName( (event.target.value).trim() )
-  }
+  const handleNameChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+    setName( (event.target.value).trim() );
+  };
 
   const handleSetName = () => {
     if (name) {
       addGuest(id, name);
       setName('');
     }
-  }
+  };
 
   const handleCloseTable = () => {
     removeTable(id);
-  }
+  };
 
   const guests = getGuests(id);
+
   return (
     <>
       <div className='table'>
@@ -38,7 +39,7 @@ const Table: FC<IProps> = ( { id } ) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Table;

@@ -4,14 +4,14 @@ import { IState } from '../vite-env';
 
 const state = observable<IState>({
   tables: []
-})
+});
 
 export const addTable = action(() => {
   state.tables.push({
     id: state.tables.length + 1, 
-    guests: []
+    guests: [],
   });
-})
+});
 
 export const removeTable = action((tableId: number) => {
   const table = state.tables.find((t) => t.id === tableId);
@@ -19,7 +19,7 @@ export const removeTable = action((tableId: number) => {
     const index = state.tables.indexOf(table);
     state.tables.splice(index, 1);
   }
-})
+});
 
 export const addGuest = action((tableId: number, guestName: string) => {
   const table = state.tables.find((t) => t.id === tableId);
@@ -27,10 +27,10 @@ export const addGuest = action((tableId: number, guestName: string) => {
     table.guests.push({
       name: guestName, 
       id: table.guests.length + 1, 
-      tableId: tableId
+      tableId: tableId,
     });
   }
-})
+});
 
 export const removeGuest = action((tableId: number, guestId: number) => {
   const table = state.tables.find((t) => t.id === tableId);
@@ -41,15 +41,16 @@ export const removeGuest = action((tableId: number, guestId: number) => {
       table.guests.splice(index, 1);
     }
   }
-})
+});
 
 export const getTables = () => {
   return state.tables;
-}
+};
 
 export const getGuests = (tableId: number) => {
   const table = state.tables.find((t) => t.id === tableId);
-  if (table) {
+  if (table && table.guests) {
     return table.guests;
   }
-}
+  return [];
+};
