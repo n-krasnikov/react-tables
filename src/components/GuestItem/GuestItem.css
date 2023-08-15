@@ -5,11 +5,14 @@
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
-  color: whitesmoke
+  color: whitesmoke;
+  font-size: 16px;
 }
 
 .guest:hover {
   border: 1px solid #8E8EFE;
+  color: white;
+  font-size: 18px;
 }
 
 .guest:hover > .guest-remove {

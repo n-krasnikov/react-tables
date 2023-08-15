@@ -10,12 +10,14 @@ import './App.css';
 const tables = getTables();
 
 const App: FC = () => {
+
+  console.log(tables);
   return (
     <>
-    <div className='button' onClick={addTable}>Add Table</div>
-    <div className='table-container'>
-      <TableList tables={tables} />
-    </div>
+      <div className='button' onClick={addTable}>Add Table</div>
+      <div className='table-container'>
+        <TableList tables={tables} />
+      </div>
     </>
   );
 };

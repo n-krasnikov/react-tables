@@ -3,7 +3,7 @@ import { observable, action } from 'mobx';
 import { IState } from '../vite-env';
 
 const state = observable<IState>({
-  tables: []
+  tables: [],
 });
 
 export const addTable = action(() => {
